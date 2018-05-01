@@ -1,0 +1,41 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+            $(document).ready(function(){
+                $.get('https://opentdb.com/api.php?amount=10&token=', function(data){
+                    var html_str ="";
+                    var answer ="";
+                    html_str += "<h4>Question</h4>"
+                    answer += "<h4>Answers</h4>"
+                    html_str += "<ul>";
+                    answer += "<ul>";
+                    var ans = ''
+                    for (var i=0; i<10; i++)
+                    {
+                        ans += (i+1) + ". " + data.results[i].correct_answer + "\n"
+                            
+                        html_str += "<li>" + data.results[i].question + "</li>";
+                        answer += "<li>" + data.results[i].correct_answer + "</li>"; 
+                    }
+
+                    $("button").click(function(){
+                    alert(ans);
+                    })
+                    
+                html_str += "</ul>";
+                answer += "</ul>";
+                $("#trivia").html(html_str);
+                $("#ans").html(answer);
+
+                });
+            });
+
+    </script>  
+</head>
+<body> 
+       <div id='trivia'></div>
+       <button>show answers</button>
+</body>
+</html>
+

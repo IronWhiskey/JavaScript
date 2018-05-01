@@ -1,0 +1,56 @@
+<html>
+<head>
+  <script>
+      let students = [
+        {name: 'Remy', cohort: 'Jan'},
+        {name: 'Genevieve', cohort: 'March'},
+        {name: 'Chuck', cohort: 'Jan'},
+        {name: 'Osmund', cohort: 'June'},
+        {name: 'Nikki', cohort: 'June'},
+        {name: 'Boris', cohort: 'June'}
+        ];
+
+
+        let users = {
+        employees: [
+            {'first_name':  'Miguel', 'last_name' : 'Jones'},
+            {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+            {'first_name' : 'Nora', 'last_name' : 'Lu'},
+            {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+            ],
+        managers: [
+            {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+            {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+            ]
+        };
+
+
+        function printArr(arr)
+        {
+            for(var i=0; i<arr.length; i++){
+                console.log( "name: " + arr[i].name + ", cohort: " + arr[i].cohort )
+            }
+        }
+
+        function printUsers(dic)
+        {
+            console.log("EPLOYEES")
+            for(var i=0; i<dic.employees.length; i++)
+            {
+                console.log( (i+1) + " " + dic.employees[i].last_name + ", " + dic.employees[i].first_name)
+            }
+
+            console.log("MANAGERS")
+            for(var i=0; i<dic.managers.length; i++)
+            {
+                console.log( (i+1) + " " + dic.managers[i].last_name + ", " + dic.managers[i].first_name)
+            }
+        }
+
+        printArr(students)
+        printUsers(users)
+    </script>  
+</head>
+<body> 
+</body>
+</html>
