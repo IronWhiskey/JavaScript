@@ -16,8 +16,7 @@ This repository contains a bundle of html/javascript files that demonstrate fund
 
 * **Michael G.** - *Initial work* (https://github.com/IronWhiskey)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## Acknowledgments
 
-* Hat tip to my coding dojo cohort mates who've I worked with
+* Hat tip to my coding dojo cohort mates whom I've worked with
