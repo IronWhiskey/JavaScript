@@ -1,0 +1,119 @@
+<html>
+<head>
+    <script>
+    
+        class Deck{
+            constructor(name){
+                this.cards = [];
+            }
+            
+            displayCards(){
+                console.log(this.cards)
+            }
+
+            add_card(a){
+                this.cards.push(a)
+            }
+
+            shuffle(){
+                var m = this.cards;
+                m = m.length;
+                var t;
+                var i;
+                // console.log(m)
+                while(m){
+                    i = Math.floor( Math.random() * m--);
+                    // swapping cards within the cards array
+                    t = this.cards[m];
+                    this.cards[m] = this.cards[i];
+                    this.cards[i] = t;
+                }
+                this.displayCards();
+            }
+            
+            // insertion sort using the order value in the card object
+            reset(){
+                for(var i = 0; i < this.cards.length; i++) {
+                    var temp = this.cards[i];
+                    var j = i - 1;
+                    while (j >= 0 && this.cards[j].get_order() > temp.get_order()) {
+                        this.cards[j + 1] = this.cards[j];
+                        j--;
+                    }
+                    this.cards[j + 1] = temp;
+                }
+            }
+        }
+
+        class Card{
+            constructor(suite, value, color, order){
+                this.suite = suite;
+                this.value = value;
+                this.color = color;
+                this.order = order;
+            }
+
+            get_order(){
+                return this.order;
+            }
+        }
+        
+        function sleep(milliseconds) {
+            var start = new Date().getTime();
+            for (var i = 0; i < 1e7; i++) {
+                if ((new Date().getTime() - start) > milliseconds){
+                    break;
+                }
+            }
+        }
+
+        var myDeck = new Deck()
+
+
+        // creating all the black spades from 2 to 10, and J, K, Q, A
+        for (var i=2; i<11;i++){
+            myDeck.add_card( card = new Card('\u2660', i, 'black', i-1))
+        }
+        myDeck.add_card( card = new Card('\u2660',  'J', 'black', 10) )
+        myDeck.add_card( card = new Card('\u2660',  'K', 'black', 11) )
+        myDeck.add_card( card = new Card('\u2660',  'Q', 'black', 12) )
+        myDeck.add_card( card = new Card('\u2660',  'A', 'black', 13) )
+        
+        // creating all black clubs from 2 to 10, and J, K, Q, A
+        for (var i=2; i<11;i++){
+            myDeck.add_card( card = new Card('\u2663', i, 'black', i+12))
+        }
+        myDeck.add_card( card = new Card('\u2663',  'J', 'black', 23) )
+        myDeck.add_card( card = new Card('\u2663',  'K', 'black', 24) )
+        myDeck.add_card( card = new Card('\u2663',  'Q', 'black', 25) )
+        myDeck.add_card( card = new Card('\u2663',  'A', 'black', 26) )
+        
+        // creating all the hearts from 2 to 10, and J, K, Q, A
+        for (var i=2; i<11;i++){
+            myDeck.add_card( card = new Card('\u2665', i, 'red', i+25))
+        }
+        myDeck.add_card( card = new Card('\u2665',  'J', 'red', 36) )
+        myDeck.add_card( card = new Card('\u2665',  'K', 'red', 37) )
+        myDeck.add_card( card = new Card('\u2665',  'Q', 'red', 38) )
+        myDeck.add_card( card = new Card('\u2665',  'A', 'red', 39) )
+        
+        // creating all the red diomonds from 2 to 10, and J, K, Q, A
+        for (var i=2; i<11;i++){
+            myDeck.add_card( card = new Card('\u2666', i, 'red', i+38))
+        }
+        myDeck.add_card( card = new Card('\u2666',  'J', 'red', 49) )
+        myDeck.add_card( card = new Card('\u2666',  'K', 'red', 50) )
+        myDeck.add_card( card = new Card('\u2666',  'Q', 'red', 51) )
+        myDeck.add_card( card = new Card('\u2666',  'A', 'red', 52) )
+
+
+        myDeck.displayCards();
+        sleep(10000);
+        myDeck.shuffle();
+        // need to add a timer here
+        myDeck.displayCards();
+    </script>  
+</head>
+<body> 
+</body>
+</html>
